@@ -6,7 +6,7 @@ import { AnimatedGameCard } from './GameCard';
 import { Logo } from './Logo';
 
 export function Main() {
-  const [games, setGames] = useState([]);
+  const [games, setGames] = useState([]); // 1
   const insets = useSafeAreaInsets();
 
   useEffect(() => {
