@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import { View, ActivityIndicator, FlatList } from 'react-native';
 import { getLatestGames } from '../lib/metacritic';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AnimatedGameCard } from './GameCard';
-import { Logo } from './Logo';
+import { Screen } from './Screen';
 
 export function Main() {
-  const [games, setGames] = useState([]);
-  const insets = useSafeAreaInsets();
+  const [games, setGames] = useState([]); // 1
 
   useEffect(() => {
     getLatestGames().then((games) => {
@@ -16,10 +14,7 @@ export function Main() {
   }, []);
 
   return (
-    <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
-      <View style={{ marginBottom: 20 }}>
-        <Logo />
-      </View>
+    <Screen className="bg-black">
       {games.length === 0 ? (
         <ActivityIndicator size={'large'} />
       ) : (
@@ -31,6 +26,6 @@ export function Main() {
           )}
         />
       )}
-    </View>
+    </Screen>
   );
 }

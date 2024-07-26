@@ -3,6 +3,7 @@ module.exports = {
   extends: ['expo', 'prettier'],
   plugins: ['prettier'],
   rules: {
+    'react/prop-types': 'off',
     'prettier/prettier': [
       'error',
       {
